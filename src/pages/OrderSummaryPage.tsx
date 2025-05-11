@@ -12,7 +12,9 @@ function OrderSummaryPage() {
   const navigate = useNavigate();
 
   const handlePlaceOrder = () => {
-    console.log("Złożono zamówienie!");
+    localStorage.setItem("orderItems", JSON.stringify(cartItems));
+    localStorage.setItem("orderTotal", JSON.stringify(totalPrice));
+    window.location.href = "/order-confirmation.html";
   };
 
   return (
