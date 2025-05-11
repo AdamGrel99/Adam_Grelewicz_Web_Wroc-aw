@@ -1,36 +1,30 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import productsData from "../products.json";
+import productsData from "../data/products.json";
 
 import ProductDetail from "../components/ProductDetail";
-import type Product from "../model/Product";
+
+import { useAppSelector } from "../store/hooks";
+import { selectCartItems } from "../store/features/cart/selectors";
 
 function ProductListPage() {
-  const [cart, setCart] = useState<Product[]>([]);
   const navigate = useNavigate();
-
-  const addToCart = (productToAdd: Product) => {
-    setCart((prevCart) => [...prevCart, productToAdd]);
-  };
+  const cartItems = useAppSelector(selectCartItems);
 
   return (
     <>
       <h1>Lista Produktów</h1>
       {productsData.map((product) => (
-        <ProductDetail
-          // TODO
-          // key should have unique value
-          key={product.id}
-          product={product}
-          onAddToCart={addToCart}
-        />
+        // TODO
+        // key should have unique value
+        <ProductDetail key={product.id} product={product} />
       ))}
       <button
         onClick={() => {
-          navigate("/cart", { state: { cartItems: cart } });
+          navigate("/cart");
         }}
       >
-        Przejdź do koszyka
+        Przejdź do koszyka (
+        {cartItems.reduce((sum, item) => sum + item.count, 0)})
       </button>
     </>
   );
