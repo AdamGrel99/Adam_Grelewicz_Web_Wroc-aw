@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import styles from "./OrderSummaryPage.module.css";
 import { useAppSelector } from "../store/hooks";
 import {
   selectCartItems,
@@ -19,19 +20,28 @@ function OrderSummaryPage() {
 
   return (
     <>
-      <h1>Podsumowanie Zamówienia</h1>
-      <h2>Przedmioty w Koszyku</h2>
+      <h1 className={styles.title}>Podsumowanie Zamówienia</h1>
+      <h2 className={styles.itemsTitle}>Przedmioty w Koszyku</h2>
       {cartItems.length > 0 ? (
         cartItems.map((item) => <SummaryCartItem key={item.name} item={item} />)
       ) : (
-        <div>Koszyk jest pusty.</div>
+        <div className={styles.emptyCart}>Koszyk jest pusty.</div>
       )}
 
-      <h2>Łączna Kwota Zamówienia</h2>
-      <div>{totalPrice.toFixed(2)} zł</div>
+      <h2 className={styles.totalTitle}>Łączna Kwota Zamówienia</h2>
+      <div className={styles.totalPrice}>{totalPrice.toFixed(2)} zł</div>
 
-      <button onClick={handlePlaceOrder}>Złóż Zamówienie</button>
-      <button onClick={() => navigate("/cart")}>Wróć do Koszyka</button>
+      <div className={styles.actions}>
+        <button className={styles.actionButton} onClick={handlePlaceOrder}>
+          Złóż Zamówienie
+        </button>
+        <button
+          className={`${styles.actionButton} ${styles.backButton}`}
+          onClick={() => navigate("/cart")}
+        >
+          Wróć do Koszyka
+        </button>
+      </div>
     </>
   );
 }

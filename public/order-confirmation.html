@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zadanie 2025</title>
+    <link rel="stylesheet" href="/orderConfirmation.css" />
   </head>
   <body>
     <h1>Zamówienie złożone pomyślnie!</h1>
@@ -14,36 +15,6 @@
 
     <p><a href="/">Powrót do listy produktów</a></p>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const itemsSummaryDiv = document.getElementById("items-summary");
-        const orderTotalDiv = document.getElementById("order-total");
-
-        const orderItems = JSON.parse(localStorage.getItem("orderItems"));
-        const orderTotal = JSON.parse(localStorage.getItem("orderTotal"));
-
-        if (orderItems && orderItems.length > 0) {
-          orderItems.forEach((item) => {
-            const itemDiv = document.createElement("div");
-            itemDiv.classList.add("summary-item");
-            itemDiv.innerHTML = `
-                        ${item.name} - Ilość: ${item.count}
-                    `;
-            itemsSummaryDiv.appendChild(itemDiv);
-          });
-        } else {
-          itemsSummaryDiv.textContent = "Brak przedmiotów w zamówieniu.";
-        }
-
-        if (orderTotal !== null) {
-          orderTotalDiv.innerHTML = `Łączny koszt: ${orderTotal.toFixed(2)} zł`;
-        } else {
-          orderTotalDiv.textContent = "Nie można pobrać łącznego kosztu.";
-        }
-
-        localStorage.removeItem("orderSummaryItems");
-        localStorage.removeItem("orderSummaryTotal");
-      });
-    </script>
+    <script src="/orderConfirmation.js"></script>
   </body>
 </html>

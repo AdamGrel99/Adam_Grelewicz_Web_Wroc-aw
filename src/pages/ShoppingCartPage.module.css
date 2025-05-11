@@ -1,0 +1,40 @@
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cartItemsList {
+  margin-bottom: 20px;
+}
+
+.emptyCart {
+  font-style: italic;
+  color: #777;
+}
+
+.totalPrice {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.actionButton {
+  background-color: blue;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+}
+
+.actionButton:hover {
+  background-color: darkblue;
+}
