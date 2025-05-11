@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://adamgrel99.github.io/Adam_Grelewicz_Web_Wroc-aw",
+  "homepage": "https://AdamGrel99.github.io/Adam_Grelewicz_Web_Wroc-aw",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
