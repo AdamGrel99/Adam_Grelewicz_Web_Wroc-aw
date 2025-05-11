@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/<Adam_Grelewicz_Web_Wroc-aw/',
+  base: '/Adam_Grelewicz_Web_Wroc-aw/',
 })
